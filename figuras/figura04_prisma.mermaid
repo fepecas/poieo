@@ -1,0 +1,29 @@
+graph TD
+    classDef fase fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px,color:#000;
+    classDef excl fill:#ffebee,stroke:#b71c1c,stroke-width:1px,color:#000,stroke-dasharray: 5 5;
+    classDef incl fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000;
+    classDef prompt fill:#fff3e0,stroke:#e65100,stroke-width:1px,color:#000;
+
+    P1["<div style='width: 260px; text-align: center; word-wrap: break-word;'><b>Prompt 1 (Perplexity):</b><br>prisma_prompt1_hybrid-human-ai-persistence.md<br><b>(n = 174)</b></div>"]:::prompt
+    P2["<div style='width: 260px; text-align: center; word-wrap: break-word;'><b>Prompt 2 (Perplexity):</b><br>prisma_prompt2_causal_evidence_on_youth_behavioral_persistence.md<br><b>(n = 400)</b></div>"]:::prompt
+    P3["<div style='width: 260px; text-align: center; word-wrap: break-word;'><b>Prompt 3 (Perplexity):</b><br>prisma_prompt3_spiritual_accompaniment_inter_confessional.md<br><b>(n = 215)</b></div>"]:::prompt
+    P4["<div style='width: 260px; text-align: center; word-wrap: break-word;'><b>Prompt 4 (Perplexity):</b><br>prisma_prompt4_intention_action_gap_youth_work_colombia.md<br><b>(n = 76)</b></div>"]:::prompt
+
+    I["<b>FASE 1: IDENTIFICACIÓN</b><br>Total de registros extraídos de repositorios indexados<br><b>(n = 865)</b>"]:::fase
+    
+    P1 --> I
+    P2 --> I
+    P3 --> I
+    P4 --> I
+
+    I -->|Depuración algorítmica| D["<b>Registros duplicados eliminados</b><br>antes de la fase de cribado<br><b>(n = 320)</b>"]:::excl
+
+    I --> C["<b>FASE 2: CRIBADO</b><br>Registros únicos para evaluación<br><b>(n = 545)</b>"]:::fase
+    
+    C -->|Descarte heurístico| E1["<b>Registros excluidos (título/resumen)</b><br>No alineados a los 3 ejes analíticos<br><b>(n = 310)</b>"]:::excl
+    
+    C --> E["<b>FASE 3: ELEGIBILIDAD</b><br>Artículos evaluados a texto completo<br><b>(n = 235)</b>"]:::fase
+    
+    E -->|Descarte metodológico| E2["<div style='width: 300px; text-align: left; word-wrap: break-word;'><b>Excluidos a texto completo (n = 155):</b><br>• Diseño sin aislamiento causal / sin grupo control <b>(n = 85)</b><br>• Población no equivalente a alta vulnerabilidad <b>(n = 45)</b><br>• Intervención digital pura sin mediación humana <b>(n = 25)</b></div>"]:::excl
+    
+    E --> IN["<b>FASE 4: INCLUSIÓN</b><br>Revisión Sistemática Consolidada<br><b>(n = 80 referencias de frontera)</b>"]:::incl

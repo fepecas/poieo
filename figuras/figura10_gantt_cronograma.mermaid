@@ -1,0 +1,70 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "critBkgColor": "#ffffff",
+    "critBorderColor": "#bdbdbd",
+    "doneTaskBkgColor": "#f5f5f5",
+    "doneTaskBorderColor": "#9e9e9e",
+    "activeTaskBkgColor": "#e8eaf6",
+    "activeTaskBorderColor": "#3f51b5",
+    "taskBkgColor": "#e8f5e9",
+    "taskBorderColor": "#2e7d32"
+  }
+}}%%
+gantt
+    todayMarker off
+    title Cronograma Poieo: Despliegue Stepped-Wedge (24 Meses | Auditoría de 20 Viajes)
+    dateFormat  YYYY-MM-DD
+    axisFormat  %Y-%m
+    tickInterval 1 month
+
+    section 1. Sur del Tolima
+    Análisis y Diseño        :crit, 2026-08-01, 120d
+    ⭐ V01: Diálogo/Ajuste    :milestone, 2026-12-01, 0d
+    [X0] Control      :done, 2027-01-01, 90d
+    ⭐ V02: Auditoría X0      :milestone, 2027-01-01, 0d
+    [X1] Intervención  :active, 2027-04-01, 90d
+    ⭐ V03: Auditoría X1      :milestone, 2027-04-01, 0d
+    [Y1-Y0] Medición :2027-07-01, 30d
+    ⭐ V04: Socialización     :milestone, 2027-07-01, 0d
+
+    section 2. Suroeste Ant.
+    Análisis y Diseño        :crit, 2026-10-01, 120d
+    ⭐ V05: Diálogo/Ajuste    :milestone, 2027-02-01, 0d
+    [X0] Control      :done, 2027-03-01, 90d
+    ⭐ V06: Auditoría X0      :milestone, 2027-03-01, 0d
+    [X1] Intervención  :active, 2027-06-01, 90d
+    ⭐ V07: Auditoría X1      :milestone, 2027-06-01, 0d
+    [Y1-Y0] Medición :2027-09-01, 30d
+    ⭐ V08: Socialización     :milestone, 2027-09-01, 0d
+
+    section 3. Boyacá Centro
+    Análisis y Diseño        :crit, 2027-01-01, 120d
+    ⭐ V09: Diálogo/Ajuste    :milestone, 2027-05-01, 0d
+    [X0] Control      :done, 2027-07-01, 90d
+    ⭐ V10: Auditoría X0      :milestone, 2027-07-01, 0d
+    [X1] Intervención  :active, 2027-10-01, 90d
+    ⭐ V11: Auditoría X1      :milestone, 2027-10-01, 0d
+    [Y1-Y0] Medición :2028-01-01, 30d
+    ⭐ V12: Socialización     :milestone, 2028-01-01, 
+
+    section 4. Eje Cafetero
+    Análisis y Diseño        :crit, 2027-04-01, 120d
+    ⭐ V13: Diálogo/Ajuste    :milestone, 2027-08-01, 0d
+    [X0] Control      :done, 2027-09-01, 90d
+    ⭐ V14: Auditoría X0      :milestone, 2027-09-01, 0d
+    [X1] Intervención  :active, 2027-12-01, 90d
+    ⭐ V15: Auditoría X1      :milestone, 2027-12-01, 0d
+    [Y1-Y0] Medición :2028-03-01, 30d
+    ⭐ V16: Socialización     :milestone, 2028-03-01, 0d
+
+    section 5. Bogotá Urbano
+    Análisis y Diseño        :crit, 2027-06-01, 120d
+    ⭐ V17: Diálogo/Ajuste    :milestone, 2027-10-01, 0d
+    [X0] Control      :done, 2027-11-01, 90d
+    ⭐ V18: Auditoría X0      :milestone, 2027-11-01, 0d
+    [X1] Intervención  :active, 2028-02-01, 90d
+    ⭐ V19: Auditoría X1      :milestone, 2028-02-01, 0d
+    [Y1-Y0] Medición :2028-05-01, 30d
+    ⭐ V20: Socialización     :milestone, 2028-05-01, 0d
+    Cierre Final             :2028-06-01, 60d

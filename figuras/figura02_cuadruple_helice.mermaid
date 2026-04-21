@@ -1,0 +1,28 @@
+flowchart LR
+    %% NODO CENTRAL
+    IP(("<b>INVESTIGADOR PRINCIPAL</b><br>Inteligencia Híbrida (mentoría dual e IA)<br>y Auditoría Metodológica"))
+
+    %% ACTORES (Orden vertical estricto)
+    SOCIEDAD["<b>SOCIEDAD CIVIL</b><br>JAC, Líderes Locales, Redes de apoyo psicosocial o inter-confesional"]
+    ESTADO["<b>ESTADO</b><br>SENA, Minciencias, RAP Eje Cafetero"]
+    ACADEMIA["<b>ACADEMIA</b><br>UNAD, CUN, CESDE, Uniandes"]
+    EMPRESA["<b>SECTOR PRODUCTIVO</b><br>Gremios (ANDI, Cámaras de Comercio),<br>Fedesoft y Empresas Locales"]
+
+    %% FLUJOS EXPLÍCITOS (El orden de declaración fuerza la renderización de arriba hacia abajo)
+    SOCIEDAD -- "Aporta CALIBRACIÓN LOCAL<br>y Contención Comunitaria" --> IP
+    ESTADO -- "Aporta JÓVENES e<br>Infraestructura Pública" --> IP
+    ACADEMIA -- "Aporta RIGOR<br>y Despliegue Educativo Regional" --> IP
+    EMPRESA -- "Aporta DATOS LABORALES<br>y Mentores de Industria" --> IP
+
+    %% ESTILOS VISUALES (Anti-Density Rule)
+    classDef centro fill:#ffffff,stroke:#aaaaaa,stroke-width:2px,color:#000000;
+    classDef estado fill:#fcf3e8,stroke:#d35400,stroke-width:2px,color:#000000;
+    classDef empresa fill:#e8faea,stroke:#27ae60,stroke-width:2px,color:#000000;
+    classDef academia fill:#e8f4f8,stroke:#2b7a78,stroke-width:2px,color:#000000;
+    classDef sociedad fill:#f4e8fa,stroke:#8e44ad,stroke-width:2px,color:#000000;
+
+    class IP centro;
+    class SOCIEDAD sociedad;
+    class ESTADO estado;
+    class ACADEMIA academia;
+    class EMPRESA empresa;

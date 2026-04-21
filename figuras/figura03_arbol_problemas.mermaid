@@ -1,0 +1,51 @@
+graph BT
+    %% Definición de paleta de colores (Psicología del color JEHU)
+    classDef estructurales fill:#fff9c4,stroke:#fbc02d,stroke-width:1px,color:#000;
+    classDef mediadores fill:#e8f5e9,stroke:#2e7d32,stroke-width:1px,color:#000;
+    classDef problema fill:#fce4ec,stroke:#b71c1c,stroke-width:2px,color:#000;
+    classDef dependiente fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000;
+    classDef consecuencias fill:#f5f5f5,stroke:#bdbdbd,stroke-width:1px,color:#000,stroke-dasharray: 5 5;
+
+    %% Nivel 1: Causas Estructurales / Condiciones de Frontera (Z)
+    %% Ordenadas espacialmente para evitar cruce de líneas
+    Z1["Z1: Exposición a violencia territorial"]
+    Z3["Z3: Severidad de la brecha digital"]
+    Z2["Z2: Intensidad de fricciones<br>del mercado local"]
+
+    %% Nivel 2: Mecanismos Conductuales (M)
+    M1["M1: Autorregulación<br>(Sensibilidad al rechazo)"]
+    M2["M2: Estructura de acción<br>(Impuesto cognitivo)"]
+    M3["M3: Falla de adaptación<br>(Altas expectativas)"]
+
+    %% Nivel 3: Problema Central (P)
+    P{"PROBLEMA CENTRAL<br><br>brecha intención-comportamiento<br>(Abel et al., 2018)<br>y efecto de desaliento (Alfonsi et al., 2024)"}
+
+    %% Nivel 4: Outcome y Consecuencias (Y, C)
+    Y["Y:Déficit de persistencia conductual"]
+    C1["Desconexión institucional<br>(Meso, sistema)"]
+    C2["Parálisis laboral<br>(Micro, individuo)"]
+    C3["Adaptación estratégica<br>(Macro, sociedad)"]
+
+    %% Asignación de clases de color
+    class Z1,Z2,Z3 estructurales;
+    class M1,M2,M3 mediadores;
+    class P problema;
+    class Y dependiente;
+    class C1,C2,C3 consecuencias;
+
+    %% Conexiones Causales - Raíces (Alineación sin cruces)
+    Z1 --> M1
+    Z3 --> M2
+    Z2 --> M2
+    Z2 --> M3
+
+    %% Conexiones Causales - Tronco
+    M1 --> P
+    M2 --> P
+    M3 --> P
+
+    %% Conexiones Causales - Ramas superiores (Forzando simetría)
+    P --> Y
+    Y --> C1
+    Y --> C2
+    Y --> C3

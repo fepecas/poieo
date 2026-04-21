@@ -1,0 +1,99 @@
+graph TD
+    %% Definición de paleta de colores econométricos (JEHU)
+    classDef nulo fill:#ffffff,stroke:#bdbdbd,stroke-width:1px,color:#9e9e9e,stroke-dasharray: 5 5;
+    classDef trat fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px,color:#000;
+    classDef ctrl fill:#f5f5f5,stroke:#9e9e9e,stroke-width:2px,color:#000;
+    classDef cierre fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000;
+    classDef leyenda fill:#ffffff,stroke:#212121,stroke-width:1px,stroke-dasharray: 5 5;
+
+    subgraph LEYENDA ["Convenciones: Diseño Stepped-Wedge y Diferencias en Diferencias (DiD)"]
+        direction LR
+        L1["<div style='width:155px;text-align:center;'><b>[ -- ] Inactivo</b><br>Fase Análisis y Diseño</div>"]:::nulo
+        L2["<div style='width:155px;text-align:center;'><b>[ X0 ] Control</b><br>Línea base [Y0]</div>"]:::ctrl
+        L3["<div style='width:155px;text-align:center;'><b>[ X1 ] Tratamiento</b><br>Mide impacto [Y1]</div>"]:::trat
+        L4["<div style='width:155px;text-align:center;'><b>[ Y1 - Y0 ] Cierre</b><br>DiD Concurrente</div>"]:::cierre
+        L1 ~~~ L2 ~~~ L3 ~~~ L4
+    end
+
+    subgraph T1 ["Trimestre 1 (Meses 1-3)"]
+        direction LR
+        T1_1["<div style='width:155px;text-align:center;'><b>Sur del Tolima</b><br>Inactivo [ -- ]<br>Mes 1-3</div>"]:::nulo
+        T1_2["<div style='width:155px;text-align:center;'><b>Suroeste Antioquia</b><br>Inactivo [ -- ]<br>Mes 1-3</div>"]:::nulo
+        T1_3["<div style='width:155px;text-align:center;'><b>Boyacá Centro</b><br>Inactivo [ -- ]<br>Mes 1-3</div>"]:::nulo
+        T1_4["<div style='width:155px;text-align:center;'><b>Eje Cafetero</b><br>Inactivo [ -- ]<br>Mes 1-3</div>"]:::nulo
+        T1_5["<div style='width:155px;text-align:center;'><b>Bogotá (Urbano)</b><br>Inactivo [ -- ]<br>Mes 1-3</div>"]:::nulo
+        T1_1 ~~~ T1_2 ~~~ T1_3 ~~~ T1_4 ~~~ T1_5
+    end
+
+    subgraph T2 ["Trimestre 2 (Meses 4-6)"]
+        direction LR
+        T2_1["<div style='width:155px;text-align:center;'><b>Sur del Tolima</b><br>C01: Control [ X0 ]<br>Inicia Mes 6</div>"]:::ctrl
+        T2_2["<div style='width:155px;text-align:center;'><b>Suroeste Antioquia</b><br>Inactivo [ -- ]<br>Mes 4-6</div>"]:::nulo
+        T2_3["<div style='width:155px;text-align:center;'><b>Boyacá Centro</b><br>Inactivo [ -- ]<br>Mes 4-6</div>"]:::nulo
+        T2_4["<div style='width:155px;text-align:center;'><b>Eje Cafetero</b><br>Inactivo [ -- ]<br>Mes 4-6</div>"]:::nulo
+        T2_5["<div style='width:155px;text-align:center;'><b>Bogotá (Urbano)</b><br>Inactivo [ -- ]<br>Mes 4-6</div>"]:::nulo
+        T2_1 ~~~ T2_2 ~~~ T2_3 ~~~ T2_4 ~~~ T2_5
+    end
+
+    subgraph T3 ["Trimestre 3 (Meses 7-9)"]
+        direction LR
+        T3_1["<div style='width:155px;text-align:center;'><b>Sur del Tolima</b><br>C02: Tratamiento [ X1 ]<br>Inicia Mes 9</div>"]:::trat
+        T3_2["<div style='width:155px;text-align:center;'><b>Suroeste Antioquia</b><br>C03: Control [ X0 ]<br>Inicia Mes 8</div>"]:::ctrl
+        T3_3["<div style='width:155px;text-align:center;'><b>Boyacá Centro</b><br>Inactivo [ -- ]<br>Mes 7-9</div>"]:::nulo
+        T3_4["<div style='width:155px;text-align:center;'><b>Eje Cafetero</b><br>Inactivo [ -- ]<br>Mes 7-9</div>"]:::nulo
+        T3_5["<div style='width:155px;text-align:center;'><b>Bogotá (Urbano)</b><br>Inactivo [ -- ]<br>Mes 7-9</div>"]:::nulo
+        T3_1 ~~~ T3_2 ~~~ T3_3 ~~~ T3_4 ~~~ T3_5
+    end
+
+    subgraph T4 ["Trimestre 4 (Meses 10-12)"]
+        direction LR
+        T4_1["<div style='width:155px;text-align:center;'><b>Sur del Tolima</b><br>Cálculo DiD<br>[ Y1 - Y0 ] Mes 12</div>"]:::cierre
+        T4_2["<div style='width:155px;text-align:center;'><b>Suroeste Antioquia</b><br>C04: Tratamiento [ X1 ]<br>Inicia Mes 11</div>"]:::trat
+        T4_3["<div style='width:155px;text-align:center;'><b>Boyacá Centro</b><br>C05: Control [ X0 ]<br>Inicia Mes 12</div>"]:::ctrl
+        T4_4["<div style='width:155px;text-align:center;'><b>Eje Cafetero</b><br>Inactivo [ -- ]<br>Mes 10-12</div>"]:::nulo
+        T4_5["<div style='width:155px;text-align:center;'><b>Bogotá (Urbano)</b><br>Inactivo [ -- ]<br>Mes 10-12</div>"]:::nulo
+        T4_1 ~~~ T4_2 ~~~ T4_3 ~~~ T4_4 ~~~ T4_5
+    end
+
+    subgraph T5 ["Trimestre 5 (Meses 13-15)"]
+        direction LR
+        T5_1["<div style='width:155px;text-align:center;'><b>Sur del Tolima</b><br>Monitoreo [ Y ]<br>Mes 13-15</div>"]:::cierre
+        T5_2["<div style='width:155px;text-align:center;'><b>Suroeste Antioquia</b><br>Cálculo DiD<br>[ Y1 - Y0 ] Mes 14</div>"]:::cierre
+        T5_3["<div style='width:155px;text-align:center;'><b>Boyacá Centro</b><br>C06: Tratamiento [ X1 ]<br>Inicia Mes 15</div>"]:::trat
+        T5_4["<div style='width:155px;text-align:center;'><b>Eje Cafetero</b><br>C07: Control [ X0 ]<br>Inicia Mes 14</div>"]:::ctrl
+        T5_5["<div style='width:155px;text-align:center;'><b>Bogotá (Urbano)</b><br>Inactivo [ -- ]<br>Mes 13-15</div>"]:::nulo
+        T5_1 ~~~ T5_2 ~~~ T5_3 ~~~ T5_4 ~~~ T5_5
+    end
+
+    subgraph T6 ["Trimestre 6 (Meses 16-18)"]
+        direction LR
+        T6_1["<div style='width:155px;text-align:center;'><b>Sur del Tolima</b><br>Monitoreo [ Y ]<br>Mes 16-18</div>"]:::cierre
+        T6_2["<div style='width:155px;text-align:center;'><b>Suroeste Antioquia</b><br>Monitoreo [ Y ]<br>Mes 16-18</div>"]:::cierre
+        T6_3["<div style='width:155px;text-align:center;'><b>Boyacá Centro</b><br>Cálculo DiD<br>[ Y1 - Y0 ] Mes 18</div>"]:::cierre
+        T6_4["<div style='width:155px;text-align:center;'><b>Eje Cafetero</b><br>C08: Tratamiento [ X1 ]<br>Inicia Mes 17</div>"]:::trat
+        T6_5["<div style='width:155px;text-align:center;'><b>Bogotá (Urbano)</b><br>C09: Control [ X0 ]<br>Inicia Mes 16</div>"]:::ctrl
+        T6_1 ~~~ T6_2 ~~~ T6_3 ~~~ T6_4 ~~~ T6_5
+    end
+
+    subgraph T7 ["Trimestre 7 (Meses 19-21)"]
+        direction LR
+        T7_1["<div style='width:155px;text-align:center;'><b>Sur del Tolima</b><br>Socialización<br>Mes 19-21</div>"]:::cierre
+        T7_2["<div style='width:155px;text-align:center;'><b>Suroeste Antioquia</b><br>Socialización<br>Mes 19-21</div>"]:::cierre
+        T7_3["<div style='width:155px;text-align:center;'><b>Boyacá Centro</b><br>Monitoreo [ Y ]<br>Mes 19-21</div>"]:::cierre
+        T7_4["<div style='width:155px;text-align:center;'><b>Eje Cafetero</b><br>Cálculo DiD<br>[ Y1 - Y0 ] Mes 20</div>"]:::cierre
+        T7_5["<div style='width:155px;text-align:center;'><b>Bogotá (Urbano)</b><br>C10: Tratamiento [ X1 ]<br>Inicia Mes 19</div>"]:::trat
+        T7_1 ~~~ T7_2 ~~~ T7_3 ~~~ T7_4 ~~~ T7_5
+    end
+
+    subgraph T8 ["Trimestre 8 (Meses 22-24)"]
+        direction LR
+        T8_1["<div style='width:155px;text-align:center;'><b>Sur del Tolima</b><br>Cierre Proyecto<br>Mes 24</div>"]:::cierre
+        T8_2["<div style='width:155px;text-align:center;'><b>Suroeste Antioquia</b><br>Cierre Proyecto<br>Mes 24</div>"]:::cierre
+        T8_3["<div style='width:155px;text-align:center;'><b>Boyacá Centro</b><br>Cierre Proyecto<br>Mes 24</div>"]:::cierre
+        T8_4["<div style='width:155px;text-align:center;'><b>Eje Cafetero</b><br>Cierre Proyecto<br>Mes 24</div>"]:::cierre
+        T8_5["<div style='width:155px;text-align:center;'><b>Bogotá (Urbano)</b><br>Cálculo DiD<br>[ Y1 - Y0 ] Mes 22-24</div>"]:::cierre
+        T8_1 ~~~ T8_2 ~~~ T8_3 ~~~ T8_4 ~~~ T8_5
+    end
+
+    LEYENDA ~~~ T1
+    T1 --> T2 --> T3 --> T4 --> T5 --> T6 --> T7 --> T8

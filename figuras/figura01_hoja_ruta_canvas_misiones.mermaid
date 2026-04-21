@@ -1,0 +1,53 @@
+flowchart TB
+    %% CAPA 1: VISIÓN Y METAS
+    subgraph Fila1 [1. VISIÓN Y METAS]
+        direction LR
+        V1["<b>ESTADO ACTUAL</b><br>Desconexión institucional en la transición educación-trabajo de jóvenes en entornos de violencia territorial (Z1), fricciones del mercado local (Z2) y con brecha digital (Z3)."]
+        V2["<b>CORTO PLAZO <br>(Meses 1-12)</b><br>Diálogo de saberes, <br>diseño del Sistema Sociotécnico <i>Poieo</i> (X) con algoritmos calibrados al contexto local de territorios PDET y ZOMAC"]
+        V3["<b>MEDIANO PLAZO<br>(Meses 13-24)</b><br>Medición de la persistencia conductual (Y) en jóvenes a través de mecanismos de autorregulación (M1), estructura de acción (M2) y adaptación  (M3)."]
+        V4["<b>LARGO PLAZO<br>(Etapa Doctoral)</b><br>Expansión del bien público digital entregado al SNCTeI al cierre de la maestría; escalamiento hacia un estudio longitudinal de inclusión de talento."]
+        
+        V1 --> V2 --> V3 --> V4
+    end
+
+    %% CAPA 2: DESAFÍO Y MISIONES
+    subgraph Fila2 [2. GRAN DESAFÍO Y MISIONES]
+        direction LR
+        D1["<b>GRAN DESAFÍO</b><br>Poner fin a todas las formas de violencia<br>en Colombia (Misión Ciencia para la Paz)."]
+        D2["<b>MISIONES IMPACTADAS</b><br>Ruta 1: Gobernanza territorial.<br>Ruta 4: Nuevas Ciudadanías y Tejido Social."]
+        
+        D1 --- D2
+    end
+
+    %% CAPA 3: RUTAS DE INNOVACIÓN
+    subgraph Fila3 [3. RUTAS DE INNOVACIÓN]
+        direction LR
+        I1["<b>INNOVACIONES CLAVES</b><br>Sistema Poieo (Mentoría Dual e IA). Madurez: TRL-6 y SRL-5. Bitácora Transmedia (Podcast). Bien Público Digital (BPD)"]
+        I2["<b>SISTEMAS HABILITANTES</b><br>Evaluación cuasi-experimental. Análisis estructural MICMAC para focalización. Control STEEP: Z1, Z2, Z3."]
+        
+        I1 --- I2
+    end
+
+    %% CAPA 4: HOJA DE RUTA DE POLÍTICA
+    subgraph Fila4 [4. HOJA DE RUTA DE POLÍTICA]
+        direction LR
+        P1["<b>PLAN DE ACCIÓN DE POLÍTICA</b><br>Sinergia de infraestructura SNCTeI y ejecución en territorio (20 viajes).<br>Transferencia de Bien Público Digital al SNCTeI (Licencia MIT)."]
+        P2["<b>GOBERNANZA (Hélices)</b><br>• Estado: SENA, RAP, Minciencias • Academia: Uniandes, UNAD, UDeA, UAM<br>• Empresa: Globant, Comfama • Sociedad civil: JAC, líderes locales"]
+        P3["<b>APRENDIZAJE Y CAPACIDADES</b><br>Evaluación causal continua (cuasi-experimento) para aprendizaje de política. Apropiación Social del Conocimiento (ASC) y diálogo de saberes."]
+        
+        P1 --- P2 --- P3
+    end    
+
+    %% CONEXIONES DE FLUJO ESTRUCTURAL
+    Fila1 --> Fila2 --> Fila3 --> Fila4
+
+    %% ESTILOS VISUALES APLICADOS DIRECTAMENTE A LAS CAJAS
+    classDef capa1 fill:#e8f4f8,stroke:#2b7a78,stroke-width:2px,color:#000;
+    classDef capa2 fill:#fcf3e8,stroke:#d35400,stroke-width:2px,color:#000;
+    classDef capa3 fill:#e8faea,stroke:#27ae60,stroke-width:2px,color:#000;
+    classDef capa4 fill:#f4e8fa,stroke:#8e44ad,stroke-width:2px,color:#000;
+
+    class V1,V2,V3,V4 capa1;
+    class D1,D2 capa2;
+    class I1,I2 capa3;
+    class P1,P2,P3 capa4;

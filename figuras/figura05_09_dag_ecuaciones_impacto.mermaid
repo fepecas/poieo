@@ -1,0 +1,58 @@
+graph TD
+    %% Definición de paleta de colores (Psicología del color JEHU)
+    classDef tratamiento fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px,color:#000;
+    classDef dependiente fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000;
+    classDef mediador fill:#e8f5e9,stroke:#2e7d32,stroke-width:1px,color:#000;
+    classDef control fill:#fff9c4,stroke:#fbc02d,stroke-width:1px,color:#000;
+    classDef ecuacion fill:#ffffff,stroke:#212121,stroke-width:1px,stroke-dasharray: 5 5,color:#000;
+
+    subgraph DOCTORADO ["Alcance Doctoral (Control de variables estructurales)"]
+        direction TD
+        
+        subgraph MAESTRIA ["Alcance de Maestría (Piloto 24 meses)"]
+            direction TD
+            
+            X["X: Inteligencia Híbrida<br>(Mentoría dual e IA)<br>(Dellermann et al., 2021)"]:::tratamiento
+            
+            M1["M1: Autorregulación cognitivo-emocional<br>(Bandura 1977)"]:::mediador
+            M2["M2: Estructura de acción<br>(Gollwitzer, 1999)"]:::mediador
+            M3["M3: Adaptación estratégica<br>(Campanario, 2018; <br>Locke & Latham, 2002)"]:::mediador
+            
+            Y["Y: Persistencia conductual"]:::dependiente
+            
+            X -->|Activa| M1
+            X -->|Activa| M2
+            X -->|Activa| M3
+            
+            M1 -->|Sostiene| Y
+            M2 -->|Sostiene| Y
+            M3 -->|Sostiene| Y
+        end
+        
+        %% Variables Z ancladas rígidamente en la base estructural
+        Z1["Z1: Exposición a<br>violencia territorial<br>(Restricción de contexto)"]:::control
+        Z2["Z2: Intensidad de fricciones del mercado<br>(Restricción Económica)"]:::control
+        Z3["Z3: Severidad de<br>la brecha digital<br>(Restricción Tecnológica)"]:::control
+
+        %% Forzar a las Z debajo de la caja de maestría y en línea horizontal
+        Y ~~~ Z2
+        Z1 ~~~ Z2 ~~~ Z3
+
+        %% Flechas de condicionamiento negativo subiendo hacia los mediadores
+        Z1 -.->|Atenúa| M1
+        Z3 -.->|Atenúa| M2
+        Z2 -.->|Atenúa| M2
+        Z2 -.->|Atenúa| M3
+    end
+
+    %% Bloque matemático aislado en la base con dimensiones HTML forzadas
+    subgraph ECUACIONES [" "]
+        direction LR
+        EqMae["<div style='width: 700px; height: 225px; display: table-cell; vertical-align: middle;'><b>Cuasi-experimental (Maestría)</b><br>Panel DiD con controles estructurales:<br><br>Y<sub>it</sub> = α<sub>i</sub> + λ<sub>t</sub> + β<sup>DiD</sup>X<sub>it</sub> + γZ<sub>it</sub> + ε<sub>it</sub></div>"]:::ecuacion
+        EqDoc["<div style='width: 700px; height: 225px; display: table-cell; vertical-align: middle;'><b>Estudio Longitudinal (Doctorado)</b><br>Expansión a macro-modelo:<br><br>Ecuaciones simultáneas para aislar Y desglosar efectos fijos nacionales</div>"]:::ecuacion
+        
+        EqMae ~~~ EqDoc
+    end
+
+    %% Conectar el grafo superior con el inferior
+    DOCTORADO ~~~ ECUACIONES

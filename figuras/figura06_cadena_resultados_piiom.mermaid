@@ -1,0 +1,19 @@
+graph LR
+    %% Definición de paleta de colores (Lógica de progresión causal JEHU)
+    classDef insumo fill:#f5f5f5,stroke:#9e9e9e,stroke-width:2px,color:#000;
+    classDef actividad fill:#fff3e0,stroke:#d84315,stroke-width:2px,color:#000;
+    classDef producto fill:#e3f2fd,stroke:#0277bd,stroke-width:2px,color:#000;
+    classDef resultado fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px,color:#000;
+    classDef impacto fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000;
+
+    I["<div style='width:180px; height:170px; text-align:center;'><b>1. INSUMOS</b><br><hr><br>Alianzas de<br>Cuádruple Hélice<br><br>Beca y presupuesto<br>(Sostenimiento)<br><br></div>"]:::insumo
+    
+    A["<div style='width:180px; height:170px; text-align:center;'><b>2. ACTIVIDADES</b><br><hr><br>• Desarrollo IA<br>• Diálogo Territorial<br>• 20 viajes de campo<br><br></div>"]:::actividad
+    
+    P["<div style='width:180px; height:170px; text-align:center;'><b>3. PRODUCTOS</b><br><hr><br>• Artículo CTeI<br>• Prototipo software<br>• Proceso ASC<br>• Divulgación transmedia<br>• Tesis Maestría<br><br></div>"]:::producto
+    
+    R["<div style='width:180px; height:170px; text-align:center;'><b>4. RESULTADOS</b><br><hr><br>Reducción<br>empírica de la<br>brecha intención-acción<br>(Abel et al., 2018)<br> y el efecto desaliento<br>(Alfonsi et al., 2024)</div>"]:::resultado
+    
+    F["<div style='width:180px; height:170px; text-align:center;'><b>5. IMPACTO</b><br><hr><br>Retención en<br>legalidad y<br>prevención de<br>cooptación armada<br><br></div>"]:::impacto
+
+    I ==> A ==> P ==> R ==> F
